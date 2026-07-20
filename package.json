@@ -1,0 +1,82 @@
+{
+  "name": "reed-intel-markdown",
+  "version": "1.2.0",
+  "description": "A Windows desktop markdown editor for Reed Intel.",
+  "main": "main.js",
+  "scripts": {
+    "build": "node build.js",
+    "prestart": "node build.js",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder --win nsis"
+  },
+  "keywords": [
+    "markdown",
+    "desktop",
+    "reed-intel"
+  ],
+  "author": "Reed Intel",
+  "license": "UNLICENSED",
+  "build": {
+    "appId": "com.reedintel.markdown",
+    "productName": "Reed Intel Markdown",
+    "copyright": "Copyright (c) Reed Intel",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "build.js",
+      "package.json",
+      "src/**/*",
+      "dist/**/*",
+      "assets/**/*",
+      "reed-intel-black-on-white.png",
+      "reed-intel-white-on-black.png"
+    ],
+    "win": {
+      "icon": "assets/reed-intel.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Reed Intel Markdown"
+    }
+  },
+  "devDependencies": {
+    "electron": "^32.2.0",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.10.4",
+    "@codemirror/lang-markdown": "^6.5.1",
+    "@codemirror/language": "^6.12.4",
+    "@codemirror/search": "^6.7.1",
+    "@codemirror/state": "^6.7.1",
+    "@codemirror/view": "^6.43.6",
+    "esbuild": "^0.28.1",
+    "marked": "^18.0.6",
+    "mermaid": "^11.16.0",
+    "prosemirror-commands": "^1.7.1",
+    "prosemirror-history": "^1.5.0",
+    "prosemirror-inputrules": "^1.5.1",
+    "prosemirror-keymap": "^1.2.3",
+    "prosemirror-markdown": "^1.13.5",
+    "prosemirror-model": "^1.25.11",
+    "prosemirror-schema-basic": "^1.2.4",
+    "prosemirror-schema-list": "^1.5.1",
+    "prosemirror-state": "^1.4.4",
+    "prosemirror-view": "^1.42.1"
+  }
+}
